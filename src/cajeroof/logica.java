@@ -65,4 +65,25 @@ public class logica {
                 }
             }
         }
+    
+        for (int d : DENOMINACIONES) {
+            int necesarios = (int) (restante / d);                
+            int disponibles = billetes.get(d) - entrega.get(d);   
+            int usar = Math.min(necesarios, disponibles);         
+ 
+            entrega.put(d, entrega.get(d) + usar);
+            restante -= (long) usar * d;
+        }
+ 
+        if (restante != 0) {
+            return null;
+        }
+        return entrega;
     }
+ 
+    public void descontar(HashMap<Integer, Integer> entrega) {
+        for (int d : DENOMINACIONES) {
+            billetes.put(d, billetes.get(d) - entrega.get(d));
+        }
+    }
+}
