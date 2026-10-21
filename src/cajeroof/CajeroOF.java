@@ -1,4 +1,4 @@
-package cajeroOF;
+package cajeroof;
 
 public class CajeroOF {
 
